@@ -72,3 +72,19 @@ document.querySelector('.input-div').innerHTML  =  document.querySelector('.inpu
    
 
 // })
+
+const dil = document.querySelector('.dil')
+const ekle = document.querySelector('.ekle')
+const sil = document.querySelector('.sil')
+const lis= document.querySelector('.liste')
+
+ekle.addEventListener('click',()=>{
+lis.innerHTML += `<li>${dil.value}</li>`
+dil.value = ''
+})
+////removechild silinecek
+sil.addEventListener('click',()=>{
+   lis.removeChild(lis.firstElementChild);
+   lis.removeChild(lis.children[3]);//ucuncuyu siler 
+
+})
