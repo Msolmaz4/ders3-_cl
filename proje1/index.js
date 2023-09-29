@@ -44,20 +44,31 @@ textIn.onkeyup = ()=>{
     
 
 }
+//h1 olusturma
+// const basla =createElement('h1')
+// basla.setAttribute('class','baslik2')
+// basla.textContent = 'Programnlama dilleri'
 
-const ekle = document.querySelector('.ekle')
-const yat = document.querySelector('.yat')
-const sot = document.querySelector('.sot')
+// document.querySelector('.input-div').appendChild(basla)
 
-yat.addEventListener("click",()=>{
-    yat.style.textContent = 'altta'
-    let val = ekle.value
-    console.log(val,'valllllll')
+
+//document.querySelector('.input-div').innerHTML  += `  <h1 class='title text danger'> Programa dilleri</h1> `
+document.querySelector('.input-div').innerHTML  =  document.querySelector('.input-div').innerHTML + `<h1 class='title text danger'> Programa dilleri</h1> `
+
+
+// const ekle = document.querySelector('.ekle')
+// const yat = document.querySelector('.yat')
+// const sot = document.querySelector('.sot')
+
+// yat.addEventListener("click",()=>{
+//     yat.style.textContent = 'altta'
+//     let val = ekle.value
+//     console.log(val,'valllllll')
    
-    const content = document.createElement("span")
-    content.setAttribute("class","list")
-    content.textContent = val
-    sot.appendChild(content)
+//     const content = document.createElement("span")
+//     content.setAttribute("class","list")
+//     content.textContent = val
+//     sot.appendChild(content)
    
 
-})
+// })
