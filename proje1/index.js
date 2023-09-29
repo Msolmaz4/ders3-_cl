@@ -81,6 +81,7 @@ const lis= document.querySelector('.liste')
 ekle.addEventListener('click',()=>{
 lis.innerHTML += `<li>${dil.value}</li>`
 dil.value = ''
+
 })
 ////removechild silinecek
 sil.addEventListener('click',()=>{
@@ -88,3 +89,4 @@ sil.addEventListener('click',()=>{
    lis.removeChild(lis.children[3]);//ucuncuyu siler 
 
 })
+
