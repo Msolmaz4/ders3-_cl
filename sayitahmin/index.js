@@ -46,14 +46,84 @@ if(sayi > 1){
    else if (sayi == 0){
     document.querySelector('.msg').textContent ='kaybettiniz '
     document.querySelector('.score').textContent = sayi
+    document.querySelector('.guess').value= ''
+    document.querySelector('.guess').style.background= 'red'
+
     ikinci()
    }
    
     
 })
 
-const ikinci = ()=>{
-    console.log('first')
-}
+let say2 = 10
 
+const ikinci = ()=>{
+
+    console.log('first')
+    document.querySelector('.again').textContent = 'ywei'
+
+
+    
+}
+document.querySelector('.again').addEventListener('click',()=>{
+    
+   
+   document.querySelector('.guess').style.background= 'tomato'
+   document.querySelector('.msg').textContent ='basarilaer='
+   const check = document.querySelector('.check')
+   check.addEventListener('click',()=>{
+   
+       say2--;
+     
+       console.log(say2,'ikicidurum')
+   let guess = document.querySelector('.guess').value
+   if(say2 > 1){ 
+   
+       if(guess == '') alert('sayi giriniz')
+           if(pcB == guess){
+              document.querySelector('.msg').textContent ='kazandiniz'
+              document.querySelector('.number').textContent = pcB
+              document.querySelector('.guess').value= ''
+           }
+           if(pcB> guess){
+               document.querySelector('.msg').textContent ='Artirin'
+               document.querySelector('.guess').value= ''
+               document.querySelector('.score').textContent = say2
+           }
+           if(pcB< guess){
+               document.querySelector('.msg').textContent ='Azaltin'
+               document.querySelector('.guess').value= ''
+               document.querySelector('.score').textContent = say2
+           }
+   }
+   
+      else if (say2 == 1){
+       document.querySelector('.msg').textContent ='son hakkiniz'
+       document.querySelector('.score').textContent = say2
+      }
+      else if (say2 == 0){
+       document.querySelector('.msg').textContent ='kaybettiniz '
+       document.querySelector('.score').textContent = say2
+       document.querySelector('.guess').value= ''
+       document.querySelector('.guess').style.background= 'red'
+       document.querySelector('.son').style.display = 'block'
+       document.querySelector('.son1').addEventListener('click',()=>{
+       location.reload();
+       })
+
+
+   
+      
+      }
+      
+       
+   })
+ 
+  
+
+
+
+
+
+})
 
