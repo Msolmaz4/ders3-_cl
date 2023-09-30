@@ -14,11 +14,13 @@ console.log(pcB)
 var sayi = 10;
 const check = document.querySelector('.check')
 check.addEventListener('click',()=>{
+
     sayi--;
-    ikinci(sayi)
-    
+  
+    console.log(sayi,'ilkdurum')
 let guess = document.querySelector('.guess').value
-if(sayi >= 0){ 
+if(sayi > 1){ 
+
     if(guess == '') alert('sayi giriniz')
         if(pcB == guess){
            document.querySelector('.msg').textContent ='kazandiniz'
@@ -36,26 +38,22 @@ if(sayi >= 0){
             document.querySelector('.score').textContent = sayi
         }
 }
-   else document.querySelector('.msg').textContent ='kaybettiniz'
+
+   else if (sayi == 1){
+    document.querySelector('.msg').textContent ='son hakkiniz'
+    document.querySelector('.score').textContent = sayi
+   }
+   else if (sayi == 0){
+    document.querySelector('.msg').textContent ='kaybettiniz '
+    document.querySelector('.score').textContent = sayi
+    ikinci()
+   }
+   
     
 })
 
-
-const ikinci = (sayi)=>{
-    console.log(document.querySelector('.score').textContent)
-    if(sayi == 0){
-        document.querySelector('.again').textContent = 'zwei'
-        document.querySelector('.msg').textContent ='yeni yarismayica basarilar'
-    }
-}
-
-const ty = document.querySelector('.again')
-
-if(document.querySelector('.again').textContent = 'zwei'){
+const ikinci = ()=>{
     console.log('first')
-    ty.addEventListener('click',()=>{
-        console.log('tikladik sukur')
-    })
-
 }
+
 
