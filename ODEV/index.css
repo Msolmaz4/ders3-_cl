@@ -19,7 +19,7 @@ body{
     text-align: center;
    
 }
-{/* bunu yanlardaki oku kaldirmak icin buldum tam bilmiyorum*/}
+/* bunu yanlardaki oku kaldirmak icin buldum tam bilmiyorum*/
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
