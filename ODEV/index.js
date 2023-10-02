@@ -1,6 +1,6 @@
 const pc = Math.ceil(Math.random()*100)
-console.log(pc)
-const btn = document.querySelector('.btn')
+console.log( pc)
+const btn = document.querySelector('.btn1')
 const inp = document.querySelector('.inp')
 const btm = document.querySelector('.btm')
 const kal = document.querySelector('.kal')
@@ -12,7 +12,7 @@ let say =4
  let sat1 = false
 btn.addEventListener('click',()=>{
      sat1 = true
-     console.log(sat1)
+     console.log(inp.value)
     if(say >=0){
        if(pc > inp.value){
         btm.innerHTML += `<li>${inp.value}</li>`
@@ -29,12 +29,12 @@ btn.addEventListener('click',()=>{
         img1.style.display = 'block'
         img2.style.display = 'none'
         }
-        else if(inp.value == pc){
-            clearInterval(sbn)
-            openModal()
-        }
+        
     }
-
+    if (inp.value == pc){
+        clearInterval(sbn)
+        openModal()
+    }
 
     else if(say < 0){
         alert('hakkiniz kalmadi')
@@ -45,7 +45,6 @@ btn.addEventListener('click',()=>{
         img2.style.display = 'none'
         der.style.display = 'block'
         sat1 = false
-       
         yeniden()
     } 
    
@@ -55,8 +54,6 @@ const yeniden =()=>{
     der.addEventListener('click',()=>{
         window.location.reload();
     })
-   
-
 }
 
 
@@ -92,3 +89,10 @@ const sbn = ()=>{
 }
 }
  setInterval(sbn ,1000)
+
+
+ const openModal = ()=>{
+    document.querySelector(".modal1").style.display="block";
+     document.querySelector('.modal1').innerHTML += '<p>kazandiniz</p>'
+
+ }
