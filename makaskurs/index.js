@@ -22,6 +22,8 @@ const finalMessagePar = document.getElementById("final-message")
 const playAgainButton = document.getElementById("play-again")
 
 let burda = localStorage.getItem('pc')
+const data = []
+
 topp.textContent = `10 : ${burda}`
 
 
@@ -74,6 +76,7 @@ const calculateResult = ()=> {
 }
 if(pcScoreSpan.textContent ==='10'|| yourScoreSpan.textContent === '10'){
     locahesap(pcScoreSpan.textContent, yourScoreSpan.textContent)
+    console.log(pcScoreSpan.textContent,'pc',yourScoreSpan.textContent,'you')
     openModal()
 }
 }
@@ -116,12 +119,9 @@ const openModal = ()=>{
     console.log(typeof you)
     if(Number(you)>Number(pc))
     { 
-
         console.log('icerdeyiz')
-        topp.textContent = `${you} : ${pc}`
+        //topp.textContent = `${you} : ${pc}`
         localStorage.setItem('pc',Number(pc))
-     
-    
     }
 }
 
