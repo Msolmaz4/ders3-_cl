@@ -14,10 +14,7 @@ console.log(pcB)
 var sayi = 10;
 const check = document.querySelector('.check')
 check.addEventListener('click',()=>{
-
     sayi--;
-  
-    console.log(sayi,'ilkdurum')
 let guess = document.querySelector('.guess').value
 if(sayi > 1){ 
 
@@ -37,6 +34,57 @@ if(sayi > 1){
             document.querySelector('.guess').value= ''
             document.querySelector('.score').textContent = sayi
         }
+
+}
+else if(sayi <= 3){
+    const basl= 1
+    let time = basl*60
+    const ilk = document.querySelector('.ilk')
+
+
+    const son =()=>{
+        if(!time == 0){
+         const minutes = Math.floor(time/60)
+         let sec = time%60
+         sec= sec <10 ? '0'+sec : sec
+         document.querySelector('.again').innerHTML = `${minutes} : ${sec}`
+         time--
+         console.log(time)
+         document.querySelector('.again').style.background= 'red'
+
+         if(guess == '') alert('sayi giriniz')
+         if(pcB == guess){
+            document.querySelector('.msg').textContent ='kazandiniz'
+            document.querySelector('.number').textContent = pcB
+            document.querySelector('.guess').value= ''
+         }
+         if(pcB> guess){
+             document.querySelector('.msg').textContent ='Artirin'
+             document.querySelector('.guess').value= ''
+             document.querySelector('.score').textContent = sayi
+         }
+         if(pcB< guess){
+             document.querySelector('.msg').textContent ='Azaltin'
+             document.querySelector('.guess').value= ''
+             document.querySelector('.score').textContent = sayi
+         }
+        
+        }
+        else if(time == 0){
+         
+            document.querySelector('.msg').textContent ='kaybettiniz '
+            document.querySelector('.score').textContent = sayi
+            document.querySelector('.guess').value= ''
+            document.querySelector('.guess').style.background= 'red'
+            ikinci()
+            
+        
+          
+        }
+         
+     
+     }
+     setInterval(son ,1000)
 }
 
    else if (sayi == 1){
@@ -48,34 +96,24 @@ if(sayi > 1){
     document.querySelector('.score').textContent = sayi
     document.querySelector('.guess').value= ''
     document.querySelector('.guess').style.background= 'red'
-
     ikinci()
-   }
-   
-    
+   } 
 })
 
 let say2 = 10
 
 const ikinci = ()=>{
 
-    console.log('first')
     document.querySelector('.again').textContent = 'ywei'
-
-
-    
 }
-document.querySelector('.again').addEventListener('click',()=>{
-    
-   
+document.querySelector('.again').addEventListener('click',()=>{ 
    document.querySelector('.guess').style.background= 'tomato'
    document.querySelector('.msg').textContent ='basarilaer='
    const check = document.querySelector('.check')
    check.addEventListener('click',()=>{
    
        say2--;
-     
-       console.log(say2,'ikicidurum')
+    
    let guess = document.querySelector('.guess').value
    if(say2 > 1){ 
    
@@ -110,20 +148,7 @@ document.querySelector('.again').addEventListener('click',()=>{
        document.querySelector('.son1').addEventListener('click',()=>{
        location.reload();
        })
-
-
-   
-      
-      }
-      
-       
+      }    
    })
- 
-  
-
-
-
-
-
 })
 
