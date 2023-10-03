@@ -7,6 +7,8 @@ const kal = document.querySelector('.kal')
 const img1 = document.querySelector('.img1')
 const img2 = document.querySelector('.img2')
 const der = document.querySelector('.der')
+const modal1 = document.querySelector('.modal1')
+const kapa = document.querySelector('.kapa')
 
 let say =4
  let sat1 = false
@@ -35,6 +37,30 @@ btn.addEventListener('click',()=>{
         inp.value = ''
         clearInterval(sbn)
         openModal()
+        setTimeout(kapat,9000) //1000 ms  1snay durdurmak icin clearTimeout() komutu kullanilabilir
+
+        document.addEventListener('click',(e)=>{
+            if(!e.composedPath().includes(kapa)){
+                console.log('icerdeyi')
+            }
+            else{
+                modal1.style.display = 'none'
+                console.log("Clicked Outside");}
+         })
+        
+        //  const target = document.getElementById("target");
+        
+        //  document.addEventListener("click", (e) => {
+        //    if(e.composedPath().includes(target)) {
+        //      console.log("Clicked Inside");
+        //    } else {
+        //      console.log("Clicked Outside");
+        //    }
+        //  });
+  
+
+
+
     }
 
     else if(say < 0){
@@ -52,7 +78,7 @@ btn.addEventListener('click',()=>{
    
 })
 const yeniden =()=>{
-    der.addEventListener('click',()=>{
+       der.addEventListener('click',()=>{
         window.location.reload();
     })
 }
@@ -93,7 +119,23 @@ const sbn = ()=>{
 
 
  const openModal = ()=>{
-    document.querySelector(".modal1").style.display="block";
-     document.querySelector('.modal1').innerHTML += '<p>kazandiniz</p>'
+       modal1.style.display="block";
+       modal1.innerHTML += '<p>kazandiniz</p>'
+
+
+
 
  }
+
+
+ const kapat = ()=>{
+    document.querySelector(".modal1").style.display='none';
+    der.style.display = 'block'
+    yeniden()
+ }
+
+
+
+
+
+
