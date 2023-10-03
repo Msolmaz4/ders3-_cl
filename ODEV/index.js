@@ -32,6 +32,7 @@ btn.addEventListener('click',()=>{
         
     }
     if (inp.value == pc){
+        inp.value = ''
         clearInterval(sbn)
         openModal()
     }
