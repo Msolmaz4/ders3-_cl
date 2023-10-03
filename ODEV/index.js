@@ -138,68 +138,7 @@ const sbn = ()=>{
 
 inp.addEventListener('keyup',(e)=>{
     if (e.keyCode === 13  ){
-        sat1 = true
-        console.log(inp.value)
-       if(say >=0){
-          if(pc > inp.value){
-           btm.innerHTML += `<li>${inp.value}</li>`
-           inp.value = ''
-           kal.innerHTML = `<span> kalan hakkiinz ${say--}</span>` 
-           img2.style.display = 'block'
-           img1.style.display = 'none'
-   
-          }
-          else if(inp.value > pc){
-           btm.innerHTML += `<li>${inp.value}</li>`
-           inp.value = ''
-           kal.innerHTML = `<span> kalan hakkiinz ${say--}</span>` 
-           img1.style.display = 'block'
-           img2.style.display = 'none'
-           }
-           
-       }
-       if (inp.value == pc){
-           inp.value = ''
-           clearInterval(sbn)
-           openModal()
-           setTimeout(kapat,9000) //1000 ms  1snay durdurmak icin clearTimeout() komutu kullanilabilir
-   
-           document.addEventListener('click',(e)=>{
-               if(!e.composedPath().includes(kapa)){
-                   console.log('icerdeyi')
-               }
-               else{
-                   modal1.style.display = 'none'
-                   console.log("Clicked Outside");}
-            })
-           
-           //  const target = document.getElementById("target");
-           
-           //  document.addEventListener("click", (e) => {
-           //    if(e.composedPath().includes(target)) {
-           //      console.log("Clicked Inside");
-           //    } else {
-           //      console.log("Clicked Outside");
-           //    }
-           //  });
-     
-   
-   
-   
-       }
-   
-       else if(say < 0){
-           alert('hakkiniz kalmadi')
-           btm.innerHTML = ''
-           inp.value = ''
-           kal.innerHTML = '<p>kalan hakkiniz : 5</p>'
-           img1.style.display = 'none'
-           img2.style.display = 'none'
-           der.style.display = 'block'
-           sat1 = false
-           yeniden()
-       } 
-      
-      
+        btn.click()
     }
+
 })
