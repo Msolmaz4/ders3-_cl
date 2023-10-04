@@ -1,5 +1,4 @@
-const pc = Math.ceil(Math.random()*100)
-console.log( pc)
+console.log('burdayiz')
 const btn = document.querySelector('.btn1')
 const inp = document.querySelector('.inp')
 const btm = document.querySelector('.btm')
@@ -10,34 +9,36 @@ const der = document.querySelector('.der')
 const modal1 = document.querySelector('.modal1')
 const kapa = document.querySelector('.kapa')
 
-let say =4
- let sat1 = false
+const pc =Math.ceil(Math.random()*100)
+console.log(pc)
+let sat1 = false
+let say = 5
 btn.addEventListener('click',()=>{
-     sat1 = true
-     console.log(inp.value)
-    if(say >=0){
-       if(pc > inp.value){
-        btm.innerHTML += `<li>${inp.value}</li>`
-        inp.value = ''
-        kal.innerHTML = `<span> kalan hakkiinz ${say--}</span>` 
+    sat1 = true
+    say--
+    sbn()
+    if(say >= 0){btm.innerHTML += `<li>${inp.value}</li>`
+    kal.innerHTML = say
+    if(pc>inp.value){
         img2.style.display = 'block'
         img1.style.display = 'none'
-
-       }
-       else if(inp.value > pc){
-        btm.innerHTML += `<li>${inp.value}</li>`
         inp.value = ''
-        kal.innerHTML = `<span> kalan hakkiinz ${say--}</span>` 
-        img1.style.display = 'block'
-        img2.style.display = 'none'
-        }
-        
     }
-    if (inp.value == pc){
+     else if( inp.value > pc){
+        img1.style.display='block';
+        img2.style.display = 'none'
+        inp.value = ''
+
+     }
+     else if(pc == inp.value){
+        modal1.style.display = 'block'
+      
+        der.style.display = 'block'
         inp.value = ''
         clearInterval(sbn)
+        yeniden()
         openModal()
-        setTimeout(kapat,9000) //1000 ms  1snay durdurmak icin clearTimeout() komutu kullanilabilir
+        setTimeout(kapat,9000) 
 
         document.addEventListener('click',(e)=>{
             if(!e.composedPath().includes(kapa)){
@@ -57,13 +58,9 @@ btn.addEventListener('click',()=>{
         //      console.log("Clicked Outside");
         //    }
         //  });
-  
-
-
-
-    }
-
-    else if(say < 0){
+     }
+ }
+    else{
         alert('hakkiniz kalmadi')
         btm.innerHTML = ''
         inp.value = ''
@@ -73,21 +70,15 @@ btn.addEventListener('click',()=>{
         der.style.display = 'block'
         sat1 = false
         yeniden()
-    } 
-   
-   
+    }
+
 })
-const yeniden =()=>{
-       der.addEventListener('click',()=>{
-        window.location.reload();
+const yeniden = ()=>{
+    der.addEventListener('click',()=>{
+        location.reload()
     })
 }
-
-
-////////////////////////////////
-//////////////saniye
-
-let time = 60*2
+let time = 60*1
 const sbn = ()=>{
     if(sat1){
     if(!time == 0){
@@ -117,28 +108,24 @@ const sbn = ()=>{
 }
  setInterval(sbn ,1000)
 
-
  const openModal = ()=>{
-       modal1.style.display="block";
-       modal1.innerHTML += '<p>kazandiniz</p>'
-
-
- }
-
-
- const kapat = ()=>{
+    modal1.style.display="block";
+    modal1.innerHTML += '<p>kazandiniz</p>'
+}
+const kapat = ()=>{
     document.querySelector(".modal1").style.display='none';
     der.style.display = 'block'
     yeniden()
  }
-
-
-
-
-//////enter isini 
-inp.addEventListener('keyup',(e)=>{
+ inp.addEventListener('keyup',(e)=>{
     if (e.keyCode === 13  ){
         btn.click()
     }
-
 })
+let frt =Math.ceil(Math.random()*6)
+console.log(frt)
+if(frt == 5){
+    let frt =Math.ceil(Math.random()*6)
+    console.log(frt)
+    console.log('icerdeyiy')
+}
