@@ -4,18 +4,15 @@ const btn = document.querySelector('.btn')
 const kayit = document.querySelector('.kayit')
 
 let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-
 localStorage.setItem('items', JSON.stringify(itemsArray));
 const data = JSON.parse(localStorage.getItem('items'));
 
 
 
 
-const deleteAll = document.querySelectorAll(".delete")
+
 
 data.map((er)=>{
-
-
   const ul = document.createElement('ul')
   const li = document.createElement('li')
   li.setAttribute('id',`${er.id} `)
@@ -33,8 +30,6 @@ data.map((er)=>{
   kayit.appendChild(ul)
   
    deleteButton.addEventListener('click',function(e){
-   
-   
     const liElement = e.target.parentElement;
     const liId = liElement.getAttribute('id');
     console.log(typeof liId);
@@ -47,11 +42,6 @@ data.map((er)=>{
  
 
 })
-
-const silme = (e)=>{
- 
-   
-}
 
 
 
@@ -77,23 +67,8 @@ const add = ()=>{
      li.appendChild(guncelle)
      ul.appendChild(li)
      kayit.appendChild(ul)
-
-    
-
-     
-    //  const deleteAll = document.querySelectorAll(".delete")
-    //  Array.from(deleteAll).forEach((er)=>{
-      
-    //          er.addEventListener('click',(e)=>{
-    //         const li = e.target.parentElement 
-    //         li.remove()
-    //         //silme()
-    //     })
-    //  })
    
     deleteButton.addEventListener('click',function(e){
-   
-   
       const liElement = e.target.parentElement;
       const liId = liElement.getAttribute('id');
       console.log(typeof liId);
@@ -103,15 +78,7 @@ const add = ()=>{
       const parent = this.parentNode;
        parent.remove();
      })
-   guncelle.addEventListener('click',openModal)
-  
-       
-
- 
-    
-
-        
-        
+   guncelle.addEventListener('click',openModal) 
     
    inp.value = ''
 }
@@ -131,4 +98,12 @@ const openModal =()=>{
 
 }
 
-
+  //  const deleteAll = document.querySelectorAll(".delete")
+    //  Array.from(deleteAll).forEach((er)=>{
+      
+    //          er.addEventListener('click',(e)=>{
+    //         const li = e.target.parentElement 
+    //         li.remove()
+    //         //silme()
+    //     })
+    //  })
