@@ -91,12 +91,18 @@ const add = ()=>{
     //     })
     //  })
    
-    deleteButton.addEventListener('click', function(){
-      const parent = this.parentNode;
+    deleteButton.addEventListener('click',function(e){
    
-      parent.remove();
-
-    });
+   
+      const liElement = e.target.parentElement;
+      const liId = liElement.getAttribute('id');
+      console.log(typeof liId);
+      console.log(data)
+      itemsArray =  data.filter((er)=>er.id != Number(liId))
+      localStorage.setItem('items', JSON.stringify(itemsArray));
+      const parent = this.parentNode;
+       parent.remove();
+     })
    guncelle.addEventListener('click',openModal)
   
        
