@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="myButton">Düğme 1</button>
+<button class="myButton">Düğme 2</button>
+
+<script>
+  var buttons = document.querySelectorAll(".myButton");
+
+  buttons.forEach(function(button) {
+    button.addEventListener("click", function(event) {
+      alert("Tıklanan düğme: " + event.target.textContent);
+    });
+  });
+
+  buttons.forEach((rr)=>{
+    rr.addEventListener('click',()=>{
+        console.log(rr.textContent)
+    })
+  })
+</script>
+</body>
+</html>

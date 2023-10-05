@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.guncelle{
+    width: 90px;
+    height: 20px;
+    background-color: yellow;
+    color: aqua;
+}
+.delete{
+    width: 90px;
+    height: 20px;
+    background-color: rgb(0, 0, 255);
+    color: aqua;
+}
