@@ -49,6 +49,23 @@ li{
     margin-left: 355px;
 }
 .guncelle{
-    border-radius: 5px;
-    margin-right: 5px;
+    background-color: #0c35ae;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+
+}
+.guncelle.active {
+    background-color: #ff0000;
+    color: #fff;
+  }
+
+.open1{
+    border:2px red solid;
+    width: 400px;
+    height: 50px;
+    background-color: aqua;
+    position: absolute;
+    margin: 5%;
+    
 }
