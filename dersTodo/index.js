@@ -8,10 +8,6 @@ localStorage.setItem('items', JSON.stringify(itemsArray));
 const data = JSON.parse(localStorage.getItem('items'));
 
 
-
-
-
-
 data.map((er)=>{
   const ul = document.createElement('ul')
   const li = document.createElement('li')
@@ -29,7 +25,7 @@ data.map((er)=>{
   ul.appendChild(li)
   kayit.appendChild(ul)
   
-   deleteButton.addEventListener('click',function(e){
+    deleteButton.addEventListener('click',function(e){
     const liElement = e.target.parentElement;
     const liId = liElement.getAttribute('id');
     console.log(typeof liId);
@@ -42,8 +38,6 @@ data.map((er)=>{
  
 
 })
-
-
 
 const add = ()=>{
     if(inp.value == '') return
@@ -82,8 +76,6 @@ const add = ()=>{
     
    inp.value = ''
 }
-
-
 
 
 btn.addEventListener('click',add)
