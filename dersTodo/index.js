@@ -131,11 +131,12 @@ const open1Modal =(a)=>{
    const newDiv = document.createElement('input')
    newDiv.value = icerdeki
    newDiv.classList.add('open1')
-
    ana.appendChild(newDiv)
   
    if(ters == false){
     console.log('first')
+   let fgh= document.querySelector('.open1').value
+   console.log(fgh)
    }
    
 
