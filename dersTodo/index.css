@@ -15,3 +15,40 @@
     background-color: rgb(0, 0, 255);
     color: aqua;
 }
+.inp{
+    width: 190px;
+    height: 35px;
+    margin-right: 5px;
+    
+}
+.ana{
+    border: 2px solid red;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+
+}
+.ana_in{
+    display: flex;
+    
+}
+.kayit{
+    border:2px solid red;
+    margin-top: 25px;
+    
+}
+li{
+   list-style: none;
+   
+}
+.delete{
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-left: 355px;
+}
+.guncelle{
+    border-radius: 5px;
+    margin-right: 5px;
+}
