@@ -13,6 +13,7 @@ data.map((er)=>{
   
   const ul = document.createElement('ul')
   const li = document.createElement('li')
+  
   li.setAttribute('id',`${er.id} `)
   li.textContent = `${er.name} `
   const deleteButton = document.createElement('button')
@@ -30,84 +31,80 @@ data.map((er)=>{
     deleteButton.addEventListener('click',function(e){
     const liElement = e.target.parentElement;
     const liId = liElement.getAttribute('id');
-    console.log(typeof liId);
-    console.log(data)
+     console.log(liId);
+  data.filter(er=>console.log(typeof er.id))
     itemsArray =  data.filter((er)=>er.id != Number(liId))
+    console.log(itemsArray)
     localStorage.setItem('items', JSON.stringify(itemsArray));
-    const parent = this.parentNode;
-     parent.remove();
+   
    })
    inp.value = ''
    
    const guncel= document.querySelectorAll('.guncelle')
-
-
-
-   guncel.forEach((button)=>{
-   
-     button.addEventListener('click',()=>{
-       ters = !ters
-       guncel.forEach((btn)=>{
-         btn.classList.remove('active')
-       })
-       button.classList.add('active')
-       open1Modal(button)
-     })
+   //console.log(guncel)
+   guncel.forEach((a)=>a.onclick=()=>{
+  
+    open1Modal(a)
    })
+
+
+
+   
 })
 
 const add = ()=>{
     if(inp.value == '') return
     console.log(inp.value)
-    itemsArray.push( {
-      id:new Date().getTime(),
+    
+   let crt = new Date().getTime()
+
+    itemsArray.push({
+      id:crt,
       name:inp.value})
     
     localStorage.setItem('items', JSON.stringify(itemsArray));
     const ul = document.createElement('ul')
      const li = document.createElement('li')
-    // li.setAttribute('id',`${id} `)
+    
+     li.setAttribute('id',`${crt}`)
      li.textContent = inp.value
      const deleteButton = document.createElement('button')
      deleteButton.setAttribute('class','delete')
      deleteButton.style.background = 'red'
      const guncelle = document.createElement('button')
      guncelle.setAttribute('class','guncelle')
-    
-
      li.appendChild(deleteButton)
      li.appendChild(guncelle)
      ul.appendChild(li)
      kayit.appendChild(ul)
-   
-      deleteButton.addEventListener('click',function(e){
+
+     deleteButton.addEventListener('click',function(e){
       const liElement = e.target.parentElement;
       console.log(liElement)
       const liId = liElement.getAttribute('id');
-      console.log(liId);
-      console.log(data)
-      itemsArray =  data.filter((er)=>er.id != Number(liId))
-      localStorage.setItem('items', JSON.stringify(itemsArray));
-      const parent = this.parentNode;
-       parent.remove();
-     })
+       console.log(liId);
+      //console.log(data)
+      
    
+      itemsArray =  data.filter((er)=>er.id != Number(liId))
+      console.log(itemsArray)
+      localStorage.setItem('items', JSON.stringify(itemsArray));
+     
+      
+     })
     
    inp.value = ''
 
+
+
 const guncel= document.querySelectorAll('.guncelle')
-
-
-
-guncel.forEach((button)=>{
-  button.addEventListener('click',()=>{
-    guncel.forEach((btn)=>{
-      btn.classList.remove('active')
-    })
-    button.classList.add('active')
-    open1Modal(button)
-  })
+//console.log(guncel)
+guncel.forEach((a)=>a.onclick=()=>{
+// console.log(a.parentElement)
+ open1Modal(a)
 })
+
+
  
 
 }
@@ -122,26 +119,63 @@ if(e.keyCode === 13){
 })
 
 const open1Modal =(a)=>{
+  //console.log(a.parentElement,'openmodalki a')
  let icerdeki = a.parentElement.textContent
- console.log(a.parentElement.textContent)
+// console.log(a.parentElement.textContent,'guncelinputici')
    
-   console.log(ters,'openmodal')
-   const id = a.getAttribute('id')
-   console.log(id)
+ 
+
+   const id = a.parentElement.getAttribute('id')
+   console.log(typeof id,'opendeki')
    const newDiv = document.createElement('input')
    newDiv.value = icerdeki
    newDiv.classList.add('open1')
    ana.appendChild(newDiv)
+  document.querySelector('.open1').addEventListener('keyup',(e)=>{
+    if(e.keyCode == 13){
+     console.log(document.querySelector('.open1').value)
+      console.log(data)
+    
+     let son = data.filter((er)=>er.id != Number(id))
   
-   if(ters == false){
-    console.log('first')
-   let fgh= document.querySelector('.open1').value
-   console.log(fgh)
-   }
-   
+   son.push(
+    {
+      id:Number(id),
+      name:document.querySelector('.open1').value
+    }
+   )
+     
+      console.log(son)
+      localStorage.setItem('items', JSON.stringify(son));
+      location.reload()
+    }
+    
+  })
+
+ 
+} 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //  const deleteAll = document.querySelectorAll(".delete")
     //  Array.from(deleteAll).forEach((er)=>{

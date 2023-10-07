@@ -55,10 +55,8 @@ li{
     cursor: pointer;
 
 }
-.guncelle.active {
-    background-color: #ff0000;
-    color: #fff;
-  }
+
+
 
 .open1{
     border:2px red solid;
@@ -69,3 +67,6 @@ li{
     margin: 5%;
     
 }
+
+
+
