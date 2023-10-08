@@ -53,16 +53,18 @@ const renderTask = ()=>{
         renderTask()
    }    
    const editTask = (e)=>{
-    console.log(e.target.taskId)
-    let obj = taskArray.filter(m=>m.taskId != e.target.taskId)
-    console.log(obj)
-    let upload = {
-        taskId:e.target.taskId,
-        taskName:document.getElementById('txtItem').value
-    }
-    taskArray.push(upload)
-    renderTask()
-    document.getElementById('txtItem').value=''
+    console.log(typeof e.target.taskId)
+    console.log(document.getElementById('txtItem').value)
+    
+     let edit = taskArray.filter((er)=>er.taskId !=e.target.taskId)
+     console.log(edit,'ilkedit')
+     edit.push({
+        id:e.target.taskId,
+        taskName :document.getElementById('txtItem').value
+     })
+  console.log(edit,'edut')
+   taskArray = edit
+   renderTask()
    }    
    
 }
