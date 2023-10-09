@@ -10,15 +10,10 @@ up.forEach((ert)=>{
         console.log(e.target.parentElement.children[2])
       // let cl = e.target.parentElement.getAttribute('class')
         e.target.parentElement.children[2].style.display = 'none'
-      
-
-
-
     })
 })
 unt.forEach((er)=>{
    er.addEventListener('click',(e)=>{
- 
     e.target.parentElement.children[2].style.display = 'block'
 }) 
 })
