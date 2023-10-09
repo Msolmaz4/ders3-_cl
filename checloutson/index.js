@@ -257,10 +257,10 @@ data.map((er)=>{
      newH5.textContent =`${er.title}`
      const newP = document.createElement('p')
      newP.classList.add('card-text')
-     newP.textContent = `${er.description}`
+     newP.textContent = `${(er.description).substring(0, 20)}...`
      const newA = document.createElement('a')
      newA.classList.add('btn-primary')
-     newA.textContent= `${er.price}`
+     newA.textContent= `${er.price}$`
     neDiv.appendChild(newImg)
      newDiv.appendChild(newH5)
      newDiv.appendChild(newP)
