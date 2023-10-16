@@ -6,9 +6,10 @@ const addCart=document.querySelectorAll('.add-cart')
 const cartContex = document.querySelector('.cart-content')
 const icon = document.querySelector('#cart-icon')
 const delet = document.querySelectorAll('.cart-remove')
-console.log(delet)
+const total = document.querySelector('.total-price')
 
 
+let calcu = []
 let box =[]
 cartIcon.onclick= ()=>{
     cart.classList.add('active')
@@ -16,17 +17,6 @@ cartIcon.onclick= ()=>{
 closeCart.onclick= ()=>{
     cart.classList.remove('active')
 }
-
-function quantityChanged(event){
-    const input = event.target
-    if(isNaN(input.value) || input.value <=0){
-        input.value = 1
-    }
-
-}
-//cart working js
-
-
 
 
 addCart.forEach((add)=>{
@@ -42,7 +32,8 @@ addCart.forEach((add)=>{
         box.push({
             name:add.parentElement.querySelector('.product-title').innerHTML,
             price:add.parentElement.querySelector('.price').innerHTML,
-            img:add.parentElement.querySelector('.product-img').src
+            img:add.parentElement.querySelector('.product-img').src,
+            inpt:1
             })
       }
          
@@ -68,19 +59,65 @@ icon.addEventListener('click',()=>{
     delet.forEach((er)=>{
         er.addEventListener('click',()=>{
             er.parentElement.remove()
+            //buradak hesap yapilmasi gerkiyor
+
         })
     })
+
+
+    calculator()
+
     const inp =  document.querySelectorAll('.cart-quantity')
     inp.forEach((valu)=>{
+        //console.log(valu.value)
+        //console.log(valu.parentElement.querySelector('.cart-price').textContent.replace('$',''))
+        // toplam =valu.value*valu.parentElement.querySelector('.cart-price').textContent.replace('$','')
+        // calcu.push(toplam)
+        // console.log(calcu)
+        // total.innerHTML = calcu.reduce((a,b)=>a+b,0) 
         valu.addEventListener('input',()=>{
+
+           console.log(valu.value,'vslu')
+           const nam = valu.parentElement.querySelector('.cart-product-title').textContent
+           const pric = valu.parentElement.querySelector('.cart-price').textContent
+           const im = valu.parentElement.parentElement.querySelector('.cart-img').src 
+
+           box = box.filter((ert)=>ert.name !=valu.parentElement.querySelector('.cart-product-title').textContent)
+          
+
+          box.push({
+          name:nam,
+          price:pric,
+          img:im,
+          inpt:valu.value
+            })
+
+            
             if(Number(valu.value)== 0){
             valu.closest('.cart-box').remove()
             }
+          hesap()
+
         })
     })
+
 })
 
+function calculator (){
+     if(box.length == 0) {
+        total.innerHTML= ''
+    }
+    box.map((ert)=>calcu.push(ert.price.replace('$','')*ert.inpt))
+    total.innerHTML = calcu.reduce((a,b)=>a+b,0)
+}
+function hesap(){
+    calcu=[]
+    box.map((ert)=>calcu.push(ert.inpt*Number(ert.price.replace('$',''))))
+    console.log(calcu.reduce((a,b)=>a+b,0))
+    total.innerHTML = calcu.reduce((a,b)=>a+b,0)
 
+    
+}
 
 
 
