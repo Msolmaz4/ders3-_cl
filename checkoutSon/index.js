@@ -12,7 +12,6 @@ closeCart.onclick= ()=>{
 
 const ready = ()=>{
     const removeCardButtons= document.getElementsByClassName('cart-remove')
-    console.log(removeCardButtons)
     for(let i = 0; i<removeCardButtons.length; i++){
         let button = removeCardButtons[i]
         button.addEventListener('click',removeCartItem)
@@ -30,7 +29,7 @@ if(document.readyState == "loading"){
 
 
 const removeCartItem = (event)=>{
-    console.log(event)
+   
     const buttonClicked = event.target
     buttonClicked.parentElement.remove()
     total()
@@ -40,12 +39,13 @@ const removeCartItem = (event)=>{
 const total = ()=>{
     const cartContent = document.getElementsByClassName('cart-content')[0]
     const cartBoxes = cartContent.getElementsByClassName('cart-box')
-    console.log(cartBoxes)
+
     let total = 0
     for(let i = 0;i< cartBoxes.length ;i++){
         let cartBox = cartBoxes[i]
         let priceElement = cartBox.getElementsByClassName('cart-price')[0]
         let quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
+        console.log(quantityElement)
         let price = parseFloat(priceElement.innerText.replace('$',''))
         let quantity = quantityElement.value 
         total = total+(price*quantity)
