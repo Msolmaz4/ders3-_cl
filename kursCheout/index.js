@@ -33,7 +33,7 @@ sepettekiler.forEach((urun)=>{
              <div class="ürün-price">
                     <p class="text-warning h2">$
                       <span class="indirim-price">${(price*0.7).toFixed(2)} </span>
-                      <span class="h5 text-dark text-decoration-line-through"> </span>${price}
+                      <span class="h5 text-dark text-decoration-line-through">${price}</span>
                     </p>
                   </div>
 
@@ -96,12 +96,13 @@ document.querySelectorAll('.adet-controller').forEach((er)=>{
      console.log(er.closest('.card').querySelector('#ürün-adet').innerHTML)
      sepettekiler= sepettekiler.filter((er)=> er.name != deger )
      console.log(sepettekiler)
+     console.log(er.closest('.card').querySelector('img').src,'resim')
      sepettekiler.push(
       {
        name:deger,
        price:er.closest('.card').querySelector('.h5').textContent,
        adet:adet1.textContent,
-       img:er.closest('.card').querySelector('img')
+       img:er.closest('.card').querySelector('img').src
       }
      )
      console.log(sepettekiler,'son')
@@ -112,6 +113,29 @@ document.querySelectorAll('.adet-controller').forEach((er)=>{
     adet1.textContent = adet1.textContent -1 
     adet1.closest('.card').querySelector('.ürün-toplam').textContent = Number(adet1.textContent)*Number(adet1.closest('.card').querySelector('.indirim-price').textContent
 )
+console.log(er.closest('.card').querySelector('.card-title').textContent)
+const deger = er.closest('.card').querySelector('.card-title').textContent
+console.log(deger)
+console.log(er.closest('.card').querySelector('#ürün-adet').innerHTML)
+sepettekiler= sepettekiler.filter((er)=> er.name != deger )
+console.log(sepettekiler)
+console.log(er.closest('.card').querySelector('img').src,'resim')
+
+if(adet1.textContent == 0){
+  er.closest('.card').remove()
+}
+else{
+  sepettekiler.push(
+ {
+  name:deger,
+  price:er.closest('.card').querySelector('.h5').textContent,
+  adet:adet1.textContent,
+  img:er.closest('.card').querySelector('img').src
+ }
+)
+console.log(sepettekiler,'son')
+}
+
 
   }
 
