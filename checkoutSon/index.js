@@ -1,5 +1,4 @@
-console.log('deneme')
-const cartIcon =document.querySelector('#cart-icon')
+console.log('hello')
 const cart =document.querySelector('.cart')
 const closeCart=document.querySelector('#close-cart')
 const addCart=document.querySelectorAll('.add-cart')
@@ -7,24 +6,26 @@ const cartContex = document.querySelector('.cart-content')
 const icon = document.querySelector('#cart-icon')
 const delet = document.querySelectorAll('.cart-remove')
 const total = document.querySelector('.total-price')
+const number = document.querySelector('.cart-number')
 
 
 let calcu = []
 let box =[]
-cartIcon.onclick= ()=>{
-    cart.classList.add('active')
-}
+
 closeCart.onclick= ()=>{
     cart.classList.remove('active')
+ 
 }
+number.style.display= 'none'
 
-
+ 
 addCart.forEach((add)=>{
     add.addEventListener('click',()=>{
         // console.log(add.parentElement.querySelector('.product-title').innerHTML)
         // console.log(add.parentElement.querySelector('.price').innerHTML)
         // console.log(add.parentElement.querySelector('img').src)
-         
+        number.style.display= 'block'
+
         const nur =  box.filter((fo)=>fo.name == add.parentElement.querySelector('.product-title').innerHTML) 
         if(nur.length > 0){
         return
@@ -34,16 +35,20 @@ addCart.forEach((add)=>{
             price:add.parentElement.querySelector('.price').innerHTML,
             img:add.parentElement.querySelector('.product-img').src,
             inpt:1
-            })
+            }) 
       }
-         
+          number.textContent = `${box.length}`
     })
 })
-console.log(box)
+
+
+
 
 icon.addEventListener('click',()=>{
-    box.map((er)=>{
-        cartContex.innerHTML += ` <div class="cart-box">
+    cart.classList.add('active')
+   cartContex.innerHTML= ''
+  box.map((er)=>{
+        cartContex.innerHTML += `<div class="cart-box">
         <img src=${er.img} class="cart-img">
         <div class="detail-box">
           <div class="cart-product-title">${er.name}</div>
@@ -53,19 +58,25 @@ icon.addEventListener('click',()=>{
          <!--remove Cart-->
     <i class='bx bxs-trash-alt cart-remove'></i>
     </div> `
-    })
+    }) 
+    
+
 
     const delet = document.querySelectorAll('.cart-remove')
     delet.forEach((er)=>{
+        
         er.addEventListener('click',()=>{
+            box = box.filter((ert)=>ert.name !=er.parentElement.querySelector('.cart-product-title').textContent)
             er.parentElement.remove()
-            hesap()
+            number.textContent = `${box.length}`
+            if(box.length == '0')  total.innerHTML= '0'
             //buradak hesap yapilmasi gerkiyor
+           hesap()
 
         })
     })
 
-
+   
     calculator()
 
     const inp =  document.querySelectorAll('.cart-quantity')
@@ -77,15 +88,12 @@ icon.addEventListener('click',()=>{
         // console.log(calcu)
         // total.innerHTML = calcu.reduce((a,b)=>a+b,0) 
         valu.addEventListener('input',()=>{
-
            console.log(valu.value,'vslu')
            const nam = valu.parentElement.querySelector('.cart-product-title').textContent
            const pric = valu.parentElement.querySelector('.cart-price').textContent
            const im = valu.parentElement.parentElement.querySelector('.cart-img').src 
-
            box = box.filter((ert)=>ert.name !=valu.parentElement.querySelector('.cart-product-title').textContent)
           
-
           box.push({
           name:nam,
           price:pric,
@@ -93,7 +101,6 @@ icon.addEventListener('click',()=>{
           inpt:valu.value
             })
 
-            
             if(Number(valu.value)== 0 ){
             valu.closest('.cart-box').remove()
             }
@@ -107,6 +114,7 @@ icon.addEventListener('click',()=>{
 function calculator (){
      if(box.length == 0) {
         total.innerHTML= '0'
+        number.textContent = `${box.length}`
     }
     box.map((ert)=>calcu.push(ert.price.replace('$','')*ert.inpt))
     total.innerHTML = calcu.reduce((a,b)=>a+b,0)
@@ -117,17 +125,17 @@ function hesap(){
     console.log(calcu.reduce((a,b)=>a+b,0))
     if(box.length == 0) {
         total.innerHTML= '0'
+        number.textContent = `${box.length}`
     }
     else{
         total.innerHTML = calcu.reduce((a,b)=>a+b,0)
     }
-    
-
-    
+     
 }
 
-
-
+if(box.length == 0){
+    number.style.display = 'none'
+}
 
 
 

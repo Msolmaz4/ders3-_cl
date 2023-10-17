@@ -57,6 +57,7 @@ header{
 #cart-icon{
     font-size: 1.8rem;
     cursor: pointer;
+    margin-right: 5px;
 }
 .cart{
     position: fixed;
@@ -97,6 +98,14 @@ header{
     font-size:24px;
     color: var(--main-color);
     cursor: pointer;
+}
+.cart-number{
+    width: 40px;
+    height: 30px;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
 }
 .total{
     display: flex;
@@ -166,15 +175,20 @@ header{
 }
 .product-box{
     position: relative;
+    
 }
 .product-box:hover{
     padding: 10px;
     border: 1px solid var(--text-color);
+   
     transition: .4s;
 
 }
 .product-img{
-    width: 100%;
+    justify-content: center;
+   
+    align-items: center;
+    width: 120px;
     height: auto;
     margin-bottom: 0.5rem;
 }
