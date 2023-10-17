@@ -59,6 +59,7 @@ icon.addEventListener('click',()=>{
     delet.forEach((er)=>{
         er.addEventListener('click',()=>{
             er.parentElement.remove()
+            hesap()
             //buradak hesap yapilmasi gerkiyor
 
         })
@@ -93,7 +94,7 @@ icon.addEventListener('click',()=>{
             })
 
             
-            if(Number(valu.value)== 0){
+            if(Number(valu.value)== 0 ){
             valu.closest('.cart-box').remove()
             }
           hesap()
@@ -105,7 +106,7 @@ icon.addEventListener('click',()=>{
 
 function calculator (){
      if(box.length == 0) {
-        total.innerHTML= ''
+        total.innerHTML= '0'
     }
     box.map((ert)=>calcu.push(ert.price.replace('$','')*ert.inpt))
     total.innerHTML = calcu.reduce((a,b)=>a+b,0)
@@ -114,7 +115,13 @@ function hesap(){
     calcu=[]
     box.map((ert)=>calcu.push(ert.inpt*Number(ert.price.replace('$',''))))
     console.log(calcu.reduce((a,b)=>a+b,0))
-    total.innerHTML = calcu.reduce((a,b)=>a+b,0)
+    if(box.length == 0) {
+        total.innerHTML= '0'
+    }
+    else{
+        total.innerHTML = calcu.reduce((a,b)=>a+b,0)
+    }
+    
 
     
 }
