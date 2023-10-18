@@ -45,7 +45,7 @@ addCart.forEach((add)=>{
 
 
 icon.addEventListener('click',()=>{
-    cart.classList.add('active')
+   cart.classList.add('active')
    cartContex.innerHTML= ''
   box.map((er)=>{
         cartContex.innerHTML += `<div class="cart-box">
